@@ -270,3 +270,76 @@ const removeRange = (arr, start, end) => {
 };
 
 console.log(removeRange([20, 30, 40, 50, 60, 70], 2, 4));
+
+//  Intermediate Sums You will be given an array of numbers. After every tenth element, add an additional element containing the sum of those ten values. If the array does not end aligned evenly with ten elements, add one last sum that includes those last elements not yet been included in one of the earlier sums. Given the array [1,2,1,2,1,2,1,2,1,2,1,2,1,2], change it to [1,2,1,2,1,2,1,2,1,2,15,1,2,1,2,6].
+
+// [1, 2, 1, 2, 1, 2, 1, 2, 1, 2] => sum = 15    => [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 15]
+// [1, 2, 1, 2, 1, 2, 1, 2, 1]    9 elements => 14      => [1, 2, 1, 2, 1, 2, 1, 2, 1, 14]
+// [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]      14 elements     => [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 15, 1, 2, 1, 2, 6]
+
+// [.... 20 numbers]  =>  [... 10 numbers sum of first 10 numbers, another 10 numbers, another sum of 10 numbers ]
+
+const intermediateSums = (arr) => {
+    const newArr = [];
+
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+        newArr.push(arr[i]);
+
+        if ((i + 1) % 10 === 0 || i === arr.length - 1) {
+            newArr.push(sum);
+            sum = 0;
+        }
+    }
+    return newArr;
+};
+
+console.log(intermediateSums([1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]));
+console.log(
+    intermediateSums([
+        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 1
+    ])
+);
+
+// Here's how it works:
+
+// The variable sum is used to keep track of the running sum for the current chunk of elements. It is initialized to 0.
+
+// As the loop iterates through the elements of the input array, it continuously adds the current element to the sum. This is done with the line sum += arr[i];.
+
+// When (i + 1) is a multiple of 10 (i.e., every tenth element), the code enters the conditional block. In this block, it appends the sum (which contains the sum of the last ten elements) to the result array with the line result.push(sum);.
+
+// After appending the sum, the sum is reset to 0 to start calculating the sum for the next chunk of elements.
+
+// The loop continues to process the elements until it reaches the end of the input array.
+
+// Finally, after the loop completes, there might be some remaining elements that were not part of a complete chunk (i.e., not a multiple of ten). To ensure that the sum of these remaining elements is also included, the code checks if sum is not equal to 0. If sum is not 0, it means there are remaining elements, and their sum is appended to the result array.
+
+// This ensures that even if the input array does not have a length that's exactly a multiple of ten, the code will still add the sum of the last chunk of elements to the result array.
+
+function addIntermediateSums(arr) {
+    const result = [];
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+        result.push(arr[i]);
+
+        if ((i + 1) % 10 === 0) {
+            result.push(sum);
+            sum = 0;
+        }
+    }
+
+    if (sum !== 0) {
+        result.push(sum);
+    }
+
+    return result;
+}
+
+const inputArray = [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2];
+const resultArray = addIntermediateSums(inputArray);
+console.log(resultArray);
