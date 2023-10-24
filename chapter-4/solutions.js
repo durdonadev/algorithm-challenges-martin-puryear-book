@@ -101,3 +101,40 @@ const removeShorterStr = (strings, length) => {
 };
 
 console.log(removeShorterStr(["abc", "defg", "a", "xy"], 3));
+
+// Integer to Roman Numerals
+// Given a positive integer that is less than 4000, return a string containing that value in Roman numeral representation. In this representation, I is 1, V is 5, X is 10, L = 50, C = 100, D = 500, and M = 1000. Remember that 4 is IV, 349 is CCCIL and 444 is CDXLIV.
+
+const integerToRoman = (num) => {
+    let result = "";
+    const dic = {
+        1000: "M",
+        900: "CM",
+        500: "D",
+        400: "CD",
+        100: "C",
+        90: "XC",
+        50: "L",
+        40: "XL",
+        10: "X",
+        9: "IX",
+        5: "V",
+        4: "IV",
+        1: "I"
+    };
+    const digits = Object.keys(dic).reverse();
+
+    for (const value of digits) {
+        console.log(value);
+        while (num >= value) {
+            if (num - value >= 0) {
+                result += dic[value];
+                num -= value;
+            }
+        }
+    }
+
+    return result;
+};
+
+console.log(integerToRoman(949));
