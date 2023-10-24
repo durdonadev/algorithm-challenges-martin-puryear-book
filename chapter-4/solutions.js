@@ -68,3 +68,17 @@ const acronym = (str) => {
 };
 
 console.log(acronym(" there's no free lunch - gotta pay yer way. "));
+
+// Count Non-Spaces Accept a string and return the number of non-space characters found in the string. For example, given "Honey pie, you are driving me crazy", return 29 (not 35).
+
+const nonSpaceCharacters = (str) => {
+    let count = 0;
+    for (const character of str) {
+        if (character === " ") {
+            count++;
+        }
+    }
+    return str.length - count;
+};
+
+console.log(nonSpaceCharacters("Honey pie, you are driving me crazy"));
