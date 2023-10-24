@@ -82,3 +82,22 @@ const nonSpaceCharacters = (str) => {
 };
 
 console.log(nonSpaceCharacters("Honey pie, you are driving me crazy"));
+
+// ["abc", "defg", "a", "xy"], 3; => ["abc", "defg"];
+
+// Remove Shorter Strings
+// Given a string array and value (length), remove any strings shorter than length from the array.
+const removeShorterStr = (strings, length) => {
+    // const result = [];
+
+    // for (const string of strings) {
+    //     if (string.length >= length) {
+    //         result.push(string);
+    //     }
+    // }
+    // return result;
+
+    return strings.filter((str) => str.length >= length);
+};
+
+console.log(removeShorterStr(["abc", "defg", "a", "xy"], 3));
