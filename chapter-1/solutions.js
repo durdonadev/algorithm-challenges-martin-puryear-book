@@ -68,3 +68,21 @@ const countPositives = (arr) => {
 };
 
 console.log(countPositives([-1, 1, 1, 1]));
+
+//Even and Odds
+
+const evenAndOdds = (nums) => {
+    for (let i = 0; i < nums.length - 2; i++) {
+        let first = nums[i],
+            second = nums[i + 1],
+            third = nums[i + 2];
+        if (first % 2 !== 0 && second % 2 !== 0 && third % 2 !== 0) {
+            console.log("Odds:", [first, second, third]);
+            i += 2;
+        } else if (first % 2 === 0 && second % 2 === 0 && third % 2 === 0) {
+            console.log("Evens:", [first, second, third]);
+            i += 2;
+        }
+    }
+};
+evenAndOdds([1, 3, 5, 2, 4, 6]);
