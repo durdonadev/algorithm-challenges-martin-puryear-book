@@ -96,3 +96,15 @@ const incrementSecunds = (array) => {
     return array;
 };
 console.log(incrementSecunds([1, 3]));
+
+// Previous lenght
+const previousLength = (words) => {
+    let prev = words[0];
+    for (let i = 1; i < words.length; i++) {
+        let temp = words[i];
+        words[i] = prev.length;
+        prev = temp;
+    }
+    return words;
+};
+console.log(previousLength(["apple", "banana", "peach"]));
