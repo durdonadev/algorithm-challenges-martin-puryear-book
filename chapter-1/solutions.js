@@ -86,3 +86,13 @@ const evenAndOdds = (nums) => {
     }
 };
 evenAndOdds([1, 3, 5, 2, 4, 6]);
+
+// Increment the seconds
+
+const incrementSecunds = (array) => {
+    for (let i = 1; i < array.length; i += 2) {
+        array[i] += 1;
+    }
+    return array;
+};
+console.log(incrementSecunds([1, 3]));
