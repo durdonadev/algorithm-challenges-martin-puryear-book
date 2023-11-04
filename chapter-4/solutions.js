@@ -157,3 +157,40 @@ const isValidParens = (str) => {
 
 console.log(isValidParens("Y(3(p)p(3)r)s"));
 console.log(isValidParens("N(0(p)3"));
+
+// Braces Valid
+
+const openingVersionOfClosing = (brace) => {
+    if (brace === "]") {
+        return "[";
+    }
+    if (brace === "}") {
+        return "{";
+    }
+    if (brace === ")") {
+        return "(";
+    }
+};
+
+const isValidBraces = (str) => {
+    const stack = [];
+    const openBraces = ["(", "[", "{"];
+    const closeBraces = [")", "]", "}"];
+
+    for (const char of str) {
+        if (openBraces.includes(char)) {
+            stack.push(char);
+        } else if (closeBraces.includes(char)) {
+            if (
+                stack.length === 0 ||
+                stack.pop() !== openingVersionOfClosing(char)
+            ) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+};
+
+console.log(isValidBraces("W(a{t}s[o(n{ c}o)m]e )h[e{r}e]"));
+console.log(isValidBraces("W(a{t}s[o(n{ c}o)m]e )h[e{r}e"));
