@@ -125,7 +125,6 @@ const integerToRoman = (num) => {
     const digits = Object.keys(dic).reverse();
 
     for (const value of digits) {
-        console.log(value);
         while (num >= value) {
             if (num - value >= 0) {
                 result += dic[value];
@@ -138,3 +137,23 @@ const integerToRoman = (num) => {
 };
 
 console.log(integerToRoman(949));
+
+const isValidParens = (str) => {
+    const open = "(";
+    const close = ")";
+    const stack = [];
+
+    for (const char of str) {
+        if (char === open) {
+            stack.push(open);
+        } else if (char === close) {
+            if (stack.length === 0 || stack.pop() !== open) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+};
+
+console.log(isValidParens("Y(3(p)p(3)r)s"));
+console.log(isValidParens("N(0(p)3"));
