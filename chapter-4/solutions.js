@@ -194,3 +194,19 @@ const isValidBraces = (str) => {
 
 console.log(isValidBraces("W(a{t}s[o(n{ c}o)m]e )h[e{r}e]"));
 console.log(isValidBraces("W(a{t}s[o(n{ c}o)m]e )h[e{r}e"));
+console.log("__________________");
+
+// Is Palindrome
+
+const isPalindrome = (str) => {
+    for (let i = 0; i < str.length / 2; i++) {
+        if (str[i] !== str[str.length - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+};
+
+console.log(isPalindrome("racecar"));
+console.log(isPalindrome("Dad"));
+console.log("__________________");
