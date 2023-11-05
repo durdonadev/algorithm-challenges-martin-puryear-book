@@ -200,13 +200,46 @@ console.log("__________________");
 
 const isPalindrome = (str) => {
     for (let i = 0; i < str.length / 2; i++) {
-        if (str[i] !== str[str.length - i - 1]) {
+        if (str[i].toLowerCase() !== str[str.length - i - 1].toLowerCase()) {
             return false;
         }
     }
     return true;
 };
 
-console.log(isPalindrome("racecar"));
-console.log(isPalindrome("Dad"));
+console.log(isPalindrome("Racecar"));
+console.log(isPalindrome("a x a"));
 console.log("__________________");
+
+// Longest Palindrome
+
+// For this challenge, we will look not only at the entire string provided, but also at the substrings within it. Return the longest palindromic substring. Given "what up, daddy-o?", return "dad". Given "uh... not much", return "u". Include spaces as well (i.e. be strict, as in previous challenge): given "Yikes! my favorite racecar erupted!", return "e racecar e". Strings longer or shorter than complete words are OK. Second: re-solve the above problem, but ignore spaces, tabs, returns, capitalization and punctuation. Given "Hot puree eruption!", return "tpureeerupt".
+
+function longestPalindrome(str) {
+    str = str.toLowerCase();
+    let longest = "";
+
+    for (let i = 1; i < str.length - 1; i++) {
+        let left = i - 1;
+        let right = i + 1;
+        while (left >= 0 && right < str.length && str[left] === str[right]) {
+            left--;
+            right++;
+        }
+
+        const oddLengthPalindrome = str.slice(left + 1, right);
+
+        if (oddLengthPalindrome.length > longest.length) {
+            longest = oddLengthPalindrome;
+        }
+    }
+    if (longest.length === 1) {
+        return str[0];
+    }
+
+    return longest;
+}
+
+console.log(longestPalindrome("what up, daddy-o?")); // "dad"
+console.log(longestPalindrome("uh... not much")); // u
+console.log(longestPalindrome("Yikes! my favorite racecar erupted!")); // e racecar e
