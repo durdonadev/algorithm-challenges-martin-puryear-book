@@ -68,3 +68,37 @@ const countPositives = (arr) => {
 };
 
 console.log(countPositives([-1, 1, 1, 1]));
+
+// Even and Odds
+// Create a function that acceps an array. Every time that array has three odd value in a row, print "That's odd!" Every time the array has three evens in a row, print "Even more so!"
+
+const checkOddEvenPatterns = (arr) => {
+    let oddCount = 0;
+    let evenCount = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 1) {
+            oddCount++;
+            evenCount = 0;
+        } else {
+            evenCount++;
+            oddCount = 0;
+        }
+
+        if (oddCount === 3) {
+            console.log("That's odd!");
+            oddCount = 0;
+        }
+
+        if (evenCount === 3) {
+            console.log("Even more so!");
+            evenCount = 0;
+        }
+    }
+};
+
+const arr1 = [1, 3, 5, 2, 4, 6, 7, 9, 11];
+checkOddEvenPatterns(arr1);
+
+const arr2 = [2, 4, 6, 1, 3, 5, 8, 10, 12];
+checkOddEvenPatterns(arr2);
