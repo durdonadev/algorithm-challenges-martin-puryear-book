@@ -139,7 +139,7 @@ console.log(reverseArray([3, 1, 6, 4, 2]));
 // Outlook: Negative
 // Given an array, create and return a new one containing all the values of the provided array, made negative (not simply multiplied by -1). Given [1,-3,5], return [-1,-3,-5].
 
-const makeNegative = (array) => {
+const outlookNegative = (array) => {
     for (let i = 0; i < array.length; i++) {
         if (array[i] > 0) {
             array[i] = array[i] - 2 * array[i];
@@ -149,4 +149,20 @@ const makeNegative = (array) => {
 };
 
 console.log("----------");
-console.log(makeNegative([1, -3, 5]));
+console.log(outlookNegative([1, -3, 5]));
+
+// Always Hungry
+// Create a function that accepts an array, and prints "yummy" each time one of the values is equal to "food". If no array elements are "food", then print "I'm hungry" once.
+
+function alwaysHungry(strings) {
+    const isFood = strings.some((ele) => ele === "food");
+    if (isFood) {
+        console.log("yummy");
+    } else {
+        console.log("I'm hungry");
+    }
+}
+
+console.log("----------");
+alwaysHungry(["apple", "food", "banana"]);
+alwaysHungry(["apple", "cherry", "banana"]);
