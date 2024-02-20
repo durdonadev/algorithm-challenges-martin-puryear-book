@@ -110,6 +110,7 @@ const previousLength = (words) => {
 console.log(previousLength(["apple", "banana", "peach"]));
 
 // Add seven to Most
+// Build function that accepts array. Return a new array with all values except first, adding 7 to each. Do not alter the original array.
 
 const addSeventoMost = (arr) => {
     let seven = [];
@@ -119,3 +120,18 @@ const addSeventoMost = (arr) => {
     return seven;
 };
 console.log(addSeventoMost([20, 30, 40]));
+
+// Reverse Array
+// Given array, write a function to reverse values, in-place. Example: reverse([3,1,6,4,2]) returns same array, containing [2,4,6,1,3].
+
+const reverseArray = (array) => {
+    let middle = Math.floor(array.length / 2);
+    for (let i = 0; i < middle; i++) {
+        let temp = array[i];
+        array[i] = array[array.length - 1 - i];
+        array[array.length - 1 - i] = temp;
+    }
+    return array;
+};
+console.log("----------");
+console.log(reverseArray([3, 1, 6, 4, 2]));
