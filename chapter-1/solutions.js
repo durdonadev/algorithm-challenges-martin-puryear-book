@@ -135,3 +135,18 @@ const reverseArray = (array) => {
 };
 console.log("----------");
 console.log(reverseArray([3, 1, 6, 4, 2]));
+
+// Outlook: Negative
+// Given an array, create and return a new one containing all the values of the provided array, made negative (not simply multiplied by -1). Given [1,-3,5], return [-1,-3,-5].
+
+const makeNegative = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+            array[i] = array[i] - 2 * array[i];
+        }
+    }
+    return array;
+};
+
+console.log("----------");
+console.log(makeNegative([1, -3, 5]));
