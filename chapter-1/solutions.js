@@ -166,3 +166,23 @@ function alwaysHungry(strings) {
 console.log("----------");
 alwaysHungry(["apple", "food", "banana"]);
 alwaysHungry(["apple", "cherry", "banana"]);
+
+// Swap Toward the Center
+// Given array, swap first and last, third and third-to-last, etc. Input[true,42,"Ada",2,"pizza"] becomes ["pizza",42,"Ada",2,true]. Change [1,2,3,4,5,6] to [6,2,4,3,5,1].
+
+function swapTowardAndCenter(array) {
+    const mid = Math.floor(array.length / 2);
+    for (let i = 0; i < mid; i = i + 2) {
+        const temp = array[i];
+        array[i] = array[array.length - 1 - i];
+        array[array.length - 1 - i] = temp;
+    }
+    return array;
+}
+
+console.log("----------");
+console.log(swapTowardAndCenter([true, 42, "Ada", 2, "pizza"]));
+console.log(swapTowardAndCenter([1, 2, 3, 4, 5, 6]));
+
+// Scale the Array
+// Given array arr and number num, multiply each arr value by num, and return the changed arr.
