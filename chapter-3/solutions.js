@@ -252,6 +252,22 @@ console.log(isValidCreditCardNumber([5, 2, 2, 8, 2]));
 
 // remove vals in that index range, working in-place (hence shortening the array). Given ([20,30,40,50,60,70],2,4), change to [20,30,70] and return it.
 
+// Array: Shuffle
+// In JavaScript, the Array object has numerous useful methods. It does not, however, contain a method that will randomize the order of an array's elements. Let's create shuffle(arr), to efficiently shuffle a given array's values. Work in-place, naturally. Do you need to return anything from your function?
+
+function shuffleArray(array) {
+    for (let i = 0; i < array.length; i++) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+console.log("----------");
+console.log(shuffleArray([1, 2, 3, 4, 5, 6]));
+
 const removeRange = (arr, start, end) => {
     // arr.splice(start, end - start + 1);
     // return arr;
