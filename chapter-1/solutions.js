@@ -186,3 +186,12 @@ console.log(swapTowardAndCenter([1, 2, 3, 4, 5, 6]));
 
 // Scale the Array
 // Given array arr and number num, multiply each arr value by num, and return the changed arr.
+
+function scaleTheArray(arr, num) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i] * num;
+    }
+    return arr;
+}
+
+console.log(scaleTheArray([1, 2, 3, 4, 5, 6], 2));
