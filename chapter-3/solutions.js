@@ -382,4 +382,22 @@ function zipIt(arr1, arr2) {
     return result;
 }
 
-console.log(zipIt([1, 2], [10, 20, 30, 40]));
+const array1 = [1, 2];
+const array2 = [10, 20, 30, 40];
+
+const combinedArray = zipIt(array1, array2);
+console.log(combinedArray); // [1, 10, 2, 20, 30, 40]
+
+// To combine values into the first array:
+function combineIntoFirstArray(arr1, arr2) {
+    for (let i = 0; i < arr2.length; i++) {
+        arr1.splice(2 * i + 1, 0, arr2[i]);
+    }
+    return arr1;
+}
+
+const modifiedArray1 = [1, 2];
+const modifiedArray2 = [10, 20, 30, 40];
+
+combineIntoFirstArray(modifiedArray1, modifiedArray2);
+console.log(modifiedArray1); // [1, 10, 2, 20, 30, 40]
