@@ -359,3 +359,27 @@ function addIntermediateSums(arr) {
 const inputArray = [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2];
 const resultArray = addIntermediateSums(inputArray);
 console.log(resultArray);
+
+// Zip It
+
+// Create a standalone function that accepts two arrays and combines their values sequwntially into a new array, at alternating indices starting with first array. Extra values from either array should be included afterward. Given [1,2] and [10,20,30,40], return new array containing [1,10,2,20,30,40].
+
+// Second: combine two arrays' values into the first array, instead of into a new array.
+
+function zipIt(arr1, arr2) {
+    let result = [];
+    const maxLength = Math.max(arr1.length, arr2.length);
+
+    for (let i = 0; i < maxLength; i++) {
+        if (i < arr1.length) {
+            result.push(arr1[i]);
+        }
+        if (i < arr2.length) {
+            result.push(arr2[i]);
+        }
+    }
+
+    return result;
+}
+
+console.log(zipIt([1, 2], [10, 20, 30, 40]));
