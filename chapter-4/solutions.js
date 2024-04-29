@@ -243,8 +243,9 @@ function longestPalindrome(str) {
 console.log(longestPalindrome("what up, daddy-o?")); // "dad"
 console.log(longestPalindrome("uh... not much")); // u
 console.log(longestPalindrome("Yikes! my favorite racecar erupted!")); // e racecar e
+console.log("__________________");
 
-//Is World Alphabetical
+// Is World Alphabetical
 // Nikki, a queen of gentle sarcasm, loves the world facetiously. Lance helpfully points out that it is the only known English world that contains all five vowels in alphabetical order, and it even has a 'y' on the end! Nikki takes a break from debugging to turn and give him an acid stare - indeed a look that was delivered arseniously. Given a string, return whether all contained letters are in alphabetical order.
 
 function isAlphabetical(str) {
@@ -264,3 +265,19 @@ console.log(isAlphabetical("zyxwvu")); // false
 console.log(isAlphabetical("World")); // true
 console.log(isAlphabetical("facetiously")); // true
 console.log(isAlphabetical("arseniously")); // true
+console.log("__________________");
+
+// D Gets Jiggy
+// Write a function that accepts as a parameter a string containing someone's name. Return a string containing the following oh-so-cool greeting: stop off the first letter of the name, capitalize this new world, and add "to the [first letter]!" Given "Dylan", return "Ylan to the D"
+
+function gGetsJiggy(str) {
+    const length = str.length;
+    const nameWhithoutFirstLetter = str.slice(1, length);
+    const transformedName =
+        nameWhithoutFirstLetter[0].toUpperCase() +
+        nameWhithoutFirstLetter.slice(1, length);
+
+    return `${transformedName} to the ${str[0]}!`;
+}
+
+console.log(gGetsJiggy("Dylan"));
