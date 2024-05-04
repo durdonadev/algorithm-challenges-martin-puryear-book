@@ -281,3 +281,35 @@ function gGetsJiggy(str) {
 }
 
 console.log(gGetsJiggy("Dylan"));
+
+// Common Suffix.
+const commonSuffix = (words) => {
+    let hash = { "": 1 };
+
+    for (let word of words) {
+        for (let i = word.length - 1; i >= 0; i--) {
+            let suffix = word.slice(i);
+            if (hash[suffix]) {
+                hash[suffix]++;
+            } else {
+                hash[suffix] = 1;
+            }
+        }
+    }
+
+    let largestSuffix = "";
+
+    for (let suffix in hash) {
+        if (hash[suffix] === words.length) {
+            if (hash[largestSuffix] < hash[suffix]) {
+                largestSuffix = suffix;
+            } else if (
+                hash[largestSuffix] === hash[suffix] &&
+                largestSuffix.length < suffix.length
+            ) {
+                largestSuffix = suffix;
+            }
+        }
+    }
+    return largestSuffix;
+};
